@@ -1,0 +1,26 @@
+#{extends 'main.html' /}
+#{set title:'Detalhamento do Animal' /}
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+
+    <tbody class="table-group-divider">
+      <tr>
+        <th scope="row">Nome do Animal:</th>
+        <td>${animalDetObj.nomeAnimalString}</td>
+        <th>Peso do Animal:</th>
+        <td>${animalDetObj.pesoAnimalInteger}</td>
+      </tr>
+      <tr>
+        <th scope="row">Tipo do Animal:</th>
+        <td>${animalDetObj.tipoAnimal}</td>
+        <th>Data de Nascimento do Animal</th>
+        <td>${animalDetObj.dataNascimentoAnimalDate.format('dd/MM/yyyy')}</td>
+      </tr>
+    </tbody>
+  </table>

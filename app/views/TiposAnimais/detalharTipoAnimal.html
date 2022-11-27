@@ -1,0 +1,36 @@
+#{extends 'main.html' /}
+#{set title:'Detalhamento de Tipos de Animais' /}
+
+<table class="table table-hover">
+    <!--Aqui é a parte onde esta todos os atributos que serão listados na listagem total de reclamações-->
+    <!--Essa é a parte do cabeçalho da lista-->
+    <thead>
+      <tr>
+        <th scope="col">Nome do Tipo</th>
+      </tr>
+    </thead>
+    <thead>
+        <tr>
+          <th scope="col">Animais Cadastrados Desse Tipo</th>
+        </tr>
+      </thead>
+    <!--aqui é as reclamações que serão listadas-->
+    <!--Parte do conteudo da Lista-->
+    <tbody class="table-group-divider">
+      <tr>
+        <td>${tipoAnimalDetObj.descriçãoString}</td>
+    </tbody>
+    <tbody class="table-group-divider">
+        #{list items:tipoAnimalListDetObj, as: 'TAList'}
+        <tr>
+          <td>${TAList.nomeAnimalString}</td>
+          <td>${TAList.pesoAnimalInteger}</td>
+          <td>${TAList.tipoAnimal}</td>
+          <td>${TAList.dataNascimentoAnimalDate.format('dd/MM/yyyy')}</td>
+          <td><a class="btn btn-success btn-sm" href="@{Animais.detalharAnimal(aList.id)}">Detalhes</a> 
+            <a class="btn btn-warning btn-sm" href="@{Animais.editarAnimal(aList.id)}">Editar</a> 
+            <a class="btn btn-danger btn-sm" href="@{Animais.removerAnimal(aList.id)}">Remover</a></td>
+        </tr>
+        #{/list}
+      </tbody>
+  </table>    

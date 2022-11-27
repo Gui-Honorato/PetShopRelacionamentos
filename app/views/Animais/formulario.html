@@ -1,0 +1,21 @@
+#{extends 'main.html' /}
+#{set title:'Cadastro de Animais' /}
+
+<h1>Cadastro de Aluno</h1>
+
+<form action="@{Animais.salvarAnimal}" method="post">
+	<label class="form-label">Nome Do Animal:</label>
+	<input type="text" name="animalObj.nomeAnimalString" class="form-control" value="${animalEditObj.nomeAnimalString}" />
+	<br/>
+	
+	<label class="form-label">Peso do Animal:</label>
+	<input type="number" name="animalObj.pesoAnimalInteger" class="form-control" value="${animalEditObj?.pesoAnimalInteger}" />
+	<br/>
+	
+	<label class="form-label">Data de Nascimento do Animal:</label>
+	<input type="date" name="animalObj.dataNascimentoAnimalDate" class="form-control" value="${animalEditObj?.dataNascimentoAnimalDate}" />
+	<br />
+	
+	
+	<input type="submit" class="btn btn-primary">
+</form>
