@@ -4,6 +4,7 @@
 <h1>Cadastro de Animal</h1>
 
 <form action="@{Animais.salvarAnimal}" method="post">
+	<input type="hidden" name="animalObj.id" value="${animalEditObj?.id}">
 	<label class="form-label">Nome Do Animal:</label>
 	<input type="text" name="animalObj.nomeAnimalString" class="form-control" value="${animalEditObj?.nomeAnimalString}" />
 	<br/>
@@ -19,7 +20,7 @@
 	<label class="form-label">Tipo do Animal:</label>
 	<select name="animalObj.tipoAnimal.id" class="form-select">
 		#{list items:tipoAnimalListObj, as:'TAList'}
-			<option value="${TAList.id}" ${TAList.id == animalEditObj?.tipoAnimal.id ? 'selected' : ''}>${TAList.descricaoString}</option>
+			<option value="${TAList.id}" ${TAList.id == animalEditObj?.tipoAnimal?.id ? 'selected' : ''}>${TAList.descricaoString}</option>
 		#{/list}
 	</select>
 	<br />
@@ -27,3 +28,7 @@
 	
 	<input type="submit" class="btn btn-primary">
 </form>
+<br>
+<br>
+<a class="btn btn-success btn-sm" href="@{TiposAnimais.formulario}">Cadastrar um Tipo de Animal</a> 
+<a class="btn btn-success btn-sm" href="@{Animais.listarAnimais}">Listar Animais Cadastrados</a> 

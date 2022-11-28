@@ -4,9 +4,15 @@
 <h1>Cadastro de Aluno</h1>
 
 <form action="@{TiposAnimais.salvarTipoAnimal}" method="post">
+	<input type="hidden" name="tipoAnimalObj.id" value="${tipoAnimalEditObj?.id}">
 	<label class="form-label">Informe um tipo de animal:</label>
 	<input type="text" name="tipoAnimalObj.descricaoString" class="form-control" value="${tipoAnimalEditObj?.descricaoString}" />
 	<br/>
 	
 	<input type="submit" class="btn btn-primary">
 </form>
+
+<br>
+<br>
+<a class="btn btn-success btn-sm" href="@{Animais.formulario}">Cadastrar um animal</a>
+<a class="btn btn-success btn-sm" href="@{TiposAnimais.listarTiposAnimais}">Lista de Tipos de Animais</a> 
