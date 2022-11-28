@@ -14,6 +14,14 @@
 	
 	<label class="form-label">Data de Nascimento do Animal:</label>
 	<input type="date" name="animalObj.dataNascimentoAnimalDate" class="form-control" value="${animalEditObj?.dataNascimentoAnimalDate}" />
+	<br />	
+
+	<label class="form-label">Tipo do Animal:</label>
+	<select name="animalObj.TipoAnimal.id" class="form-select">
+		#{list items:tipoAnimalListObj, as:'TAList'}
+			<option value="${TAList.id}" ${t.id == animalEditObj?.turma?.id ? 'selected' : ''}>${t}</option>
+		#{/list}
+	</select>
 	<br />
 	
 	
