@@ -1,0 +1,12 @@
+#{extends 'main.html' /}
+#{set title:'Cadastro de Animais' /}
+
+<h1>Cadastro de Aluno</h1>
+
+<form action="@{TiposAnimais.salvarTipoAnimal}" method="post">
+	<label class="form-label">Informe um tipo de animal:</label>
+	<input type="text" name="tipoAnimalObj.descricaoString" class="form-control" value="${tipoAnimalEditObj?.descricaoString}" />
+	<br/>
+	
+	<input type="submit" class="btn btn-primary">
+</form>

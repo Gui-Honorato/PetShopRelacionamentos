@@ -5,7 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 import play.db.jpa.Model;
 
@@ -15,7 +15,7 @@ public class Animal extends Model {
     public Integer pesoAnimalInteger;
     public Date dataNascimentoAnimalDate;
 
-    @OneToMany
+    @ManyToOne
     public TipoAnimal tipoAnimal;
 
     @Override

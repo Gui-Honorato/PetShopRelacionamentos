@@ -16,24 +16,18 @@ public class TiposAnimais extends Controller {
 
     public static void salvarTipoAnimal(TipoAnimal tipoAnimalObj){
         tipoAnimalObj.save();
+        listarTiposAnimais();
 
     }
     public static void editarTipoAnimal(Long id) {
-		TipoAnimal tipoAnimalEditObj = TipoAnimal.findById(id);
+        TipoAnimal tipoAnimalEditObj = TipoAnimal.findById(id);
 		renderTemplate("TiposAnimais/formulario.html", tipoAnimalEditObj);
 	}
     
     public static void listarTiposAnimais(){
-        String termoRecebido = params.get("termoPesquisadoFront");
 		
-		List<TipoAnimal> tipoAnimalListObj = Collections.EMPTY_LIST;
-		if (termoRecebido == null || termoRecebido.isEmpty()) {
-			tipoAnimalListObj = TipoAnimal.findAll();
-		} else {
-			tipoAnimalListObj = TipoAnimal.find("lower(descricaoString) like ?1", 
-					"%" + termoRecebido.toLowerCase() + "%").fetch();
-		}
-		render(tipoAnimalListObj, termoRecebido);
+		List<TipoAnimal> tipoAnimalListObj = TipoAnimal.findAll();
+		render(tipoAnimalListObj);
     }
 
     public static void removerTipoAnimal(Long id) {
@@ -44,10 +38,11 @@ public class TiposAnimais extends Controller {
     
     public static void detalharTipoAnimal(long id) {
         TipoAnimal tipoAnimalDetObj = TipoAnimal.findById(id);
-        List<Animal> tipoAnimalListDetObj = Animal.find("(lower(tipoAnimal) like ?1) AND statusObj = ?2", 
+        
+        List<Animal> animaisPorTipoListDetObj = Animal.find("(lower(tipoAnimal.descricaoString) like ?1) AND statusObj = ?2", 
         "%" + tipoAnimalDetObj.descricaoString.toLowerCase() + "%",
         StatusExclusaoAnimalEnum.ONINTERFACE).fetch();
-        render(tipoAnimalDetObj, tipoAnimalListDetObj);
+        render(tipoAnimalDetObj, animaisPorTipoListDetObj);
     }
     
 }

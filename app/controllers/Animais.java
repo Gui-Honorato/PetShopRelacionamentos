@@ -11,16 +11,17 @@ import play.mvc.Controller;
 
 public class Animais extends Controller {
     public static void formulario(){
-        List<TipoAnimal> tipoAnimalListObj = Animal.findAll();
+        List<TipoAnimal> tipoAnimalListObj = TipoAnimal.findAll();
         render(tipoAnimalListObj);
     }
 
     public static void salvarAnimal(Animal animalObj){
         animalObj.save();
+        listarAnimais();
 
     }
     public static void editarAnimal(Long id) {
-        List<TipoAnimal> tipoAnimalListObj = Animal.findAll();
+        List<TipoAnimal> tipoAnimalListObj = TipoAnimal.findAll();
 		Animal animalEditObj = Animal.findById(id);
 		renderTemplate("Animais/formulario.html", animalEditObj, tipoAnimalListObj);
 	}

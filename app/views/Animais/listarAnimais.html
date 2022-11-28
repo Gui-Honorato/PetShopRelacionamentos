@@ -1,18 +1,5 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
-<!--Barra de navegação da parte de cima da listagem-->
-<nav class="navbar bg-light">
-    <div class="container-fluid">
-      <nav class="navbar bg-light">
-          <a class="btn btn-outline-success me-2"  style="text-decoration: none;" href="@{Animais.formulario}">Voltar</a>
-      </nav>
-      <!--Parte do Formulario de pesquisa-->
-      <form action="@{Animais.listarReclamacoes}" class="d-flex" role="search">
-        <input type="text" name="termoPesquisadoFront" class="form-control me-2" placeholder="Search" aria-label="Seach">
-        <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-      </form>
-    </div>
-  </nav>
 
 
 <table class="table table-hover">
@@ -34,8 +21,8 @@
     <tr>
       <td>${aList.nomeAnimalString}</td>
       <td>${aList.pesoAnimalInteger}</td>
-      <td>${aList.tipoAnimal}</td>
       <td>${aList.dataNascimentoAnimalDate.format('dd/MM/yyyy')}</td>
+      <td>${aList.tipoAnimal.descricaoString}</td>
       <td><a class="btn btn-success btn-sm" href="@{Animais.detalharAnimal(aList.id)}">Detalhes</a> 
         <a class="btn btn-warning btn-sm" href="@{Animais.editarAnimal(aList.id)}">Editar</a> 
         <a class="btn btn-danger btn-sm" href="@{Animais.removerAnimal(aList.id)}">Remover</a></td>

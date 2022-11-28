@@ -7,4 +7,5 @@ import play.db.jpa.Model;
 @Entity
 public class TipoAnimal extends Model{
     public String descricaoString;
+
 }

@@ -1,11 +1,11 @@
 #{extends 'main.html' /}
 #{set title:'Cadastro de Animais' /}
 
-<h1>Cadastro de Aluno</h1>
+<h1>Cadastro de Animal</h1>
 
 <form action="@{Animais.salvarAnimal}" method="post">
 	<label class="form-label">Nome Do Animal:</label>
-	<input type="text" name="animalObj.nomeAnimalString" class="form-control" value="${animalEditObj.nomeAnimalString}" />
+	<input type="text" name="animalObj.nomeAnimalString" class="form-control" value="${animalEditObj?.nomeAnimalString}" />
 	<br/>
 	
 	<label class="form-label">Peso do Animal:</label>
@@ -13,13 +13,13 @@
 	<br/>
 	
 	<label class="form-label">Data de Nascimento do Animal:</label>
-	<input type="date" name="animalObj.dataNascimentoAnimalDate" class="form-control" value="${animalEditObj?.dataNascimentoAnimalDate}" />
+	<input type="date" name="animalObj.dataNascimentoAnimalDate" class="form-control" value="${animalEditObj?.dataNascimentoAnimalDate?.format('yyyy-MM-dd')}" />
 	<br />	
 
 	<label class="form-label">Tipo do Animal:</label>
-	<select name="animalObj.TipoAnimal.id" class="form-select">
+	<select name="animalObj.tipoAnimal.id" class="form-select">
 		#{list items:tipoAnimalListObj, as:'TAList'}
-			<option value="${TAList.id}" ${t.id == animalEditObj?.turma?.id ? 'selected' : ''}>${t}</option>
+			<option value="${TAList.id}" ${TAList.id == animalEditObj?.tipoAnimal.id ? 'selected' : ''}>${TAList.descricaoString}</option>
 		#{/list}
 	</select>
 	<br />

@@ -1,0 +1,25 @@
+#{extends 'main.html' /}
+#{set title:'Listagem de Tipos de Animais' /}
+
+<table class="table table-hover">
+  <!--Aqui é a parte onde esta todos os atributos que serão listados na listagem total de reclamações-->
+  <!--Essa é a parte do cabeçalho da lista-->
+  <thead>
+    <tr>
+      <th scope="col">Tipo do Animal</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <!--aqui é as reclamações que serão listadas-->
+  <!--Parte do conteudo da Lista-->
+  <tbody class="table-group-divider">
+    #{list items:tipoAnimalListObj, as: 'TAList'}
+    <tr>
+      <td><a  href="@{TiposAnimais.detalharTipoAnimal(TAList.id)}">${TAList.descricaoString}</a> </td>
+      <td>
+        <a class="btn btn-warning btn-sm" href="@{TiposAnimais.editarTipoAnimal(TAList.id)}">Editar</a> 
+        <a class="btn btn-danger btn-sm" href="@{TiposAnimais.removerTipoAnimal(TAList.id)}">Remover</a></td>
+    </tr>
+    #{/list}
+  </tbody>
+</table>    
