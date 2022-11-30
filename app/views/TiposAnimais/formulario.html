@@ -1,5 +1,5 @@
 #{extends 'main.html' /}
-#{set title:'Cadastro de Animais' /}
+#{set title:'Cadastro De Tipo de Animal' /}
 
 <h1>Cadastro de Aluno</h1>
 
@@ -9,7 +9,7 @@
 	<input type="text" name="tipoAnimalObj.descricaoString" class="form-control" value="${tipoAnimalEditObj?.descricaoString}" />
 	<br/>
 	
-	<input type="submit" class="btn btn-primary">
+	<input type="submit" class="btn btn-primary" value="${tipoAnimalEditObj ? 'Atualizar Cadastro' : 'Cadastrar Tipo'}">
 </form>
 
 <br>
