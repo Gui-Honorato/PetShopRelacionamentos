@@ -1,10 +1,14 @@
 #{extends 'main.html' /}
 #{set title:'Detalhamento de Tipos de Animais' /}
 <h1>Tipo de Animal: ${tipoAnimalDetObj.descricaoString}</h1>
+<h3>Animais Cadastrados Desse Tipo</h3>
 <table class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">Animais Cadastrados Desse Tipo</th>
+        <th scope="col">Nome do Animal</th>
+        <th>Peso do Animal</th>
+        <th>Tipo do Animal</th>
+        <th>Data de Nascimento do Animal</th>
       </tr>
     </thead>
     

@@ -27,17 +27,8 @@ public class Animais extends Controller {
 	}
     
     public static void listarAnimais(){
-        String termoRecebido = params.get("termoPesquisadoFront");
-		
-		List<Animal> animalListObj = Collections.EMPTY_LIST;
-		if (termoRecebido == null || termoRecebido.isEmpty()) {
-			animalListObj = Animal.find("statusObj = ?1", StatusExclusaoAnimalEnum.ONINTERFACE).fetch();
-		} else {
-			animalListObj = Animal.find("(lower(nomeAnimalString) like ?1) AND statusObj = ?2", 
-					"%" + termoRecebido.toLowerCase() + "%",
-					StatusExclusaoAnimalEnum.ONINTERFACE).fetch();
-		}
-		render(animalListObj, termoRecebido);
+		List<Animal> animalListObj = Animal.find("statusObj = ?1",StatusExclusaoAnimalEnum.ONINTERFACE).fetch();
+		render(animalListObj);
     }
 
     public static void removerAnimal(Long id) {
